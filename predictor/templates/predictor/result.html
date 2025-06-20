@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prediction Result</title>
+  <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}">
+</head>
+<body>
+  <h1>Predicted Outcome</h1>
+  <p><strong>{{ home_team }}</strong> vs <strong>{{ away_team }}</strong> in {{ league }} (Stage {{ stage }})</p>
+  <p style="font-size:1.5em;">→ {{ prediction }}</p>
+  <a href="{% url 'predictor:index' %}">Try again</a>
+</body>
+</html>
