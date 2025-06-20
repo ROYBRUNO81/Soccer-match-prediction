@@ -1,0 +1,30 @@
+/* static/predictor/css/style.css */
+
+html, body {
+  height: 100%;               /* make the body fill the viewport */
+  margin: 0;                  /* remove default margins */
+}
+
+body {
+  display: flex;              /* enable Flexbox */
+  flex-direction: column;     /* stack children vertically */
+  justify-content: center;    /* center vertically */
+  align-items: center;        /* center horizontally */
+  font-family: sans-serif;    /* optional: nicer default font */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;                /* space between fields */
+  width: 300px;               /* optional fixed width */
+}
+
+input, button, label {
+  width: 100%;                /* make inputs/buttons fill the form width */
+  box-sizing: border-box;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
