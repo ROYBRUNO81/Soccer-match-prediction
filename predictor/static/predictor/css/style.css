@@ -28,3 +28,18 @@ input, button, label {
 h1 {
   margin-bottom: 1rem;
 }
+
+/* Centering wrapper for result page */
+.result-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  width: 300px;      /* match your form width */
+  text-align: center;
+}
+
+/* optional: give the “Try again” link a bit of breathing room */
+.result-container a {
+  margin-top: 1rem;
+}

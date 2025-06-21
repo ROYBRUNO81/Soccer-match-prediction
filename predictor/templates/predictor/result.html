@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +7,11 @@
   <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}">
 </head>
 <body>
-  <h1>Predicted Outcome</h1>
-  <p><strong>{{ home_team }}</strong> vs <strong>{{ away_team }}</strong> in {{ league }} (Stage {{ stage }})</p>
-  <p style="font-size:1.5em;">→ {{ prediction }}</p>
-  <a href="{% url 'predictor:index' %}">Try again</a>
+  <div class="result-container">
+    <h1>Predicted Outcome</h1>
+    <p><strong>{{ home_team }}</strong> vs <strong>{{ away_team }}</strong> in {{ league }} (Stage {{ stage }})</p>
+    <p style="font-size: 1.5em;">→ {{ prediction }}</p>
+    <a href="{% url 'predictor:index' %}">Try again</a>
+  </div>
 </body>
 </html>
