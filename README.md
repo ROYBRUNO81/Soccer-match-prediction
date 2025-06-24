@@ -2,6 +2,8 @@
 
 A minimalistic Django web application that uses a machine learning model to predict soccer match outcomes based on historical data, team, league, and match stage.
 
+<img src="home_page.png" alt="Quad Photo location" width="500" height="500" style="border-radius:12; overflow:hidden;"/>
+
 ---
 
 ## 🚀 Features
