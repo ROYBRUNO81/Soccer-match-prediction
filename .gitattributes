@@ -1,3 +1,2 @@
 full_model.pkl filter=lfs diff=lfs merge=lfs -text
-notebooks/database.sqlite filter=lfs diff=lfs merge=lfs -text
 predictor/ml/full_model.pkl filter=lfs diff=lfs merge=lfs -text
