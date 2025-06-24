@@ -6,12 +6,18 @@
   <title>Soccer Match Predictor</title>
   <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}">
 </head>
-<body>
-  <h1>Soccer Match Outcome Prediction</h1>
+<body class="index-page"
+style="
+  background: url('{% static "predictor/img/el-clasico.jpeg" %}') 
+              no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+">
+  <h1 style="color:#fff">Soccer Match Outcome Prediction</h1>
   <form method="POST" action="{% url 'predictor:predict' %}">
     {% csrf_token %}
 
-    <label for="league">League:</label>
+    <label for="league" style="color:#fff">League:</label>
     <select id="league" name="league" required>
       <option value="" disabled selected>Choose a league</option>
       {% for lg in leagues %}
@@ -19,7 +25,7 @@
       {% endfor %}
     </select>
 
-    <label for="home_team">Home Team:</label>
+    <label for="home_team" style="color:#fff">Home Team:</label>
     <select id="home_team" name="home_team" required>
       <option value="" disabled selected>Choose home team</option>
       {% for team in teams %}
@@ -27,7 +33,7 @@
       {% endfor %}
     </select>
 
-    <label for="away_team">Away Team:</label>
+    <label for="away_team" style="color:#fff">Away Team:</label>
     <select id="away_team" name="away_team" required>
       <option value="" disabled selected>Choose away team</option>
       {% for team in teams %}
@@ -35,7 +41,7 @@
       {% endfor %}
     </select>
 
-    <label for="stage">Stage:</label>
+    <label for="stage" style="color:#fff">Stage:</label>
     <input type="number" id="stage" name="stage" required>
 
     <button type="submit">Predict Outcome</button>

@@ -1,32 +1,23 @@
 /* static/predictor/css/style.css */
 
 html, body {
-  height: 100%;               /* make the body fill the viewport */
-  margin: 0;                  /* remove default margins */
+  height: 100%;             
+  margin: 0;               
 }
 
 body {
-  display: flex;              /* enable Flexbox */
-  flex-direction: column;     /* stack children vertically */
-  justify-content: center;    /* center vertically */
-  align-items: center;        /* center horizontally */
-  font-family: sans-serif;    /* optional: nicer default font */
+  display: flex;          
+  flex-direction: column;    
+  justify-content: center;   
+  align-items: center;        
+  font-family: sans-serif;   
 }
 
 form {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;                /* space between fields */
-  width: 300px;               /* optional fixed width */
-}
-
-input, button, label {
-  width: 100%;                /* make inputs/buttons fill the form width */
-  box-sizing: border-box;
-}
-
-h1 {
-  margin-bottom: 1rem;
+  gap: 0.5rem;     
+  width: 300px;        
 }
 
 /* Centering wrapper for result page */
@@ -35,11 +26,40 @@ h1 {
   flex-direction: column;
   gap: 0.5rem;
   align-items: center;
-  width: 300px;      /* match your form width */
+  width: 300px;     
   text-align: center;
 }
 
-/* optional: give the “Try again” link a bit of breathing room */
+/* “Try again” link a bit of breathing room */
 .result-container a {
   margin-top: 1rem;
+}
+
+/* Page-specific backgrounds */
+body.index-page {
+  background: url('{% static "predictor/img/el-clasico.jpeg" %}') 
+              no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+body.result-page {
+  background: url("/static/predictor/img/result.jpg") 
+              no-repeat center center fixed;
+  background-size: cover;
+}
+
+form {
+  background: rgba(255,255,255,0.8);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+
+input, select, button, label {
+  width: 100%;
+  box-sizing: border-box;
+}
+h1 {
+  margin-bottom: 1rem;
 }

@@ -6,12 +6,17 @@
   <title>Prediction Result</title>
   <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}">
 </head>
-<body>
+<body class="result-page" style="
+background: url('{% static "predictor/img/result.jpg" %}') 
+            no-repeat center center fixed;
+background-size: cover;
+min-height: 100vh;
+">
   <div class="result-container">
-    <h1>Predicted Outcome</h1>
-    <p><strong>{{ home_team }}</strong> vs <strong>{{ away_team }}</strong> in {{ league }} (Stage {{ stage }})</p>
-    <p style="font-size: 1.5em;">→ {{ prediction }}</p>
-    <a href="{% url 'predictor:index' %}">Try again</a>
+    <h1 style="color:#fff">Predicted Outcome</h1>
+    <p style="font-size: 1.5em; color:#fb04e6"><strong>{{ home_team }}</strong> vs <strong>{{ away_team }}</strong> in {{ league }} (Stage {{ stage }})</p>
+    <p style="font-size: 2em; color:#00ff1a" ><strong>→ {{ prediction }}</strong></p>
+    <a href="{% url 'predictor:index' %}" style="color:#fff">Try again</a>
   </div>
 </body>
 </html>

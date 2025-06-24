@@ -79,32 +79,41 @@ def predict(request):
             'teams': TEAMS,
         })
 
-    # Gather inputs
-    stage     = int(request.POST['stage'])
-    home_team = request.POST['home_team']
-    away_team = request.POST['away_team']
-    league    = request.POST['league']
-    year      = timezone.now().year
+    # 1. Gather inputs
+    stage      = int(request.POST['stage'])
+    home_team  = request.POST['home_team']
+    away_team  = request.POST['away_team']
+    league     = request.POST['league']
+    year       = timezone.now().year
 
-    # Build DataFrame for prediction
+    # 2. Build DataFrame
     row = {
         'home_team_long_name': home_team,
         'away_team_long_name': away_team,
-        'league_name': league,
-        'stage': stage,
-        'year': year,
+        'league_name'        : league,
+        'stage'              : stage,
+        'year'               : year,
         **DEFAULT_ODDS
     }
     X = pd.DataFrame([row])
 
-    # Predict
-    pred_enc = pipeline.predict(X)[0]
-    outcome  = label_encoder.inverse_transform([pred_enc])[0]
+    # 3. Predict
+    pred_enc   = pipeline.predict(X)[0]
+    outcome_raw = label_encoder.inverse_transform([pred_enc])[0]
 
+    # 4. Turn into a message
+    if outcome_raw == 'Home Win':
+        result_message = f"{home_team} Win!"
+    elif outcome_raw == 'Away Win':
+        result_message = f"{away_team} Win!"
+    else:
+        result_message = "Draw"
+
+    # 5. Render
     return render(request, 'predictor/result.html', {
         'home_team': home_team,
         'away_team': away_team,
-        'league': league,
-        'stage': stage,
-        'prediction': outcome,
+        'league':    league,
+        'stage':     stage,
+        'prediction': result_message,    # now contains "Real Madrid CF Win!" etc.
     })
