@@ -4,30 +4,41 @@
 <head>
   <meta charset="UTF-8">
   <title>Soccer Match Predictor</title>
-  <link
-    rel="stylesheet"
-    href="{% static 'predictor/css/style.css' %}"
-  >
+  <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}">
 </head>
 <body>
   <h1>Soccer Match Outcome Prediction</h1>
   <form method="POST" action="{% url 'predictor:predict' %}">
     {% csrf_token %}
+
+    <label for="league">League:</label>
+    <select id="league" name="league" required>
+      <option value="" disabled selected>Choose a league</option>
+      {% for lg in leagues %}
+        <option value="{{ lg }}">{{ lg }}</option>
+      {% endfor %}
+    </select>
+
+    <label for="home_team">Home Team:</label>
+    <select id="home_team" name="home_team" required>
+      <option value="" disabled selected>Choose home team</option>
+      {% for team in teams %}
+        <option value="{{ team }}">{{ team }}</option>
+      {% endfor %}
+    </select>
+
+    <label for="away_team">Away Team:</label>
+    <select id="away_team" name="away_team" required>
+      <option value="" disabled selected>Choose away team</option>
+      {% for team in teams %}
+        <option value="{{ team }}">{{ team }}</option>
+      {% endfor %}
+    </select>
+
     <label for="stage">Stage:</label>
     <input type="number" id="stage" name="stage" required>
 
-    <label for="home_team">Home Team:</label>
-    <input type="text" id="home_team" name="home_team" required>
-
-    <label for="away_team">Away Team:</label>
-    <input type="text" id="away_team" name="away_team" required>
-
-    <label for="league">League:</label>
-    <input type="text" id="league" name="league" required>
-
     <button type="submit">Predict Outcome</button>
   </form>
-
-  <script src="{% static 'predictor/js/script.js' %}"></script>
 </body>
 </html>
